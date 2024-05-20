@@ -42,7 +42,7 @@ DICOM Cancer Detector is a project that leverages a deep learning Convolutional 
 
 1. Navigate to the frontend directory:
     ```bash
-    cd ../frontend
+    cd ./client/
     ```
 
 2. Install the required packages:
