@@ -5,6 +5,7 @@ from flask_cors import CORS
 import numpy as np
 from keras.api.models import load_model
 import pydicom
+import matplotlib.pyplot as plt
 from functions import data_returner
 
 import cv2
@@ -40,7 +41,7 @@ def index():
 
     dicom = pydicom.dcmread(dicom_file_path)
     data = dicom.pixel_array
-    cv2.imwrite("client/src/assets/preview.jpg", data)
+    plt.imsave('client/src/assets/preview.jpg', data, cmap='gray')
 
     return (
         jsonify(
