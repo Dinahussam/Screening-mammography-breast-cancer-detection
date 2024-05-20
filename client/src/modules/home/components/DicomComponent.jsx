@@ -39,57 +39,31 @@ function DicomViewer() {
     postFileToServer(file);
 
     const reader = new FileReader();
-    reader.onload = function (e) {
-      // const arrayBuffer = e.target.result;
-      // const byteArray = new Uint8Array(arrayBuffer);
-      // const dataSet = dicomParser.parseDicom(byteArray);
-      // const pixelDataElement = dataSet.elements.x7fe00010;
-      // const pixelData = new Uint16Array(
-      //   dataSet.byteArray.buffer,
-      //   pixelDataElement.dataOffset,
-      //   pixelDataElement.length / 2
-      // );
-      // const canvas = document.getElementById("myCanvas");
-      // const context = canvas.getContext("2d");
-      // const width = dataSet.uint16("x00280011");
-      // const height = dataSet.uint16("x00280010");
-      // canvas.width = width;
-      // canvas.height = height;
-      // const imageData = context.createImageData(width, height);
-      // const data = imageData.data;
-      // // Find the minimum and maximum pixel values for normalization
-      // let minPixelValue = Number.MAX_VALUE;
-      // let maxPixelValue = Number.MIN_VALUE;
-      // for (let i = 0; i < pixelData.length; i++) {
-      //   const value = pixelData[i];
-      //   if (value < minPixelValue) {
-      //     minPixelValue = value;
-      //   }
-      //   if (value > maxPixelValue) {
-      //     maxPixelValue = value;
-      //   }
-      // }
-      // // Normalize the pixel data to the range [0, 255]
-      // for (let i = 0, j = 0; i < pixelData.length; i++, j += 4) {
-      //   const normalizedValue =
-      //     ((pixelData[i] - minPixelValue) / (maxPixelValue - minPixelValue)) *
-      //     255;
-      //   data[j] = normalizedValue; // R
-      //   data[j + 1] = normalizedValue; // G
-      //   data[j + 2] = normalizedValue; // B
-      //   data[j + 3] = 255; // A
-      // }
-      // // Clear the canvas before rendering
-      // context.putImageData(imageData, 0, 0);
-    };
+    reader.onload = function (e) {};
     reader.readAsArrayBuffer(file);
   };
   // ===========================================================================
 
   return (
-    <div style={{display: "flex", flexDirection: "column"}}>
-      <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
-        <h2>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h2
+          style={{
+            color:
+              prediction != null
+                ? prediction > 0.5
+                  ? "pink"
+                  : "lime"
+                : "white",
+          }}
+        >
           Result:{" "}
           {prediction != null
             ? prediction > 0.5
@@ -106,16 +80,18 @@ function DicomViewer() {
             borderRadius: "20px",
           }}
         >
-          <img
-            id="previewImage"
-            src={imagePreview}
-            style={{
-              width: "500px",
-              height: "500px",
-              objectFit: "contain",
-              borderRadius: "20px",
-            }}
-          ></img>
+          {prediction && (
+            <img
+              id="previewImage"
+              src={imagePreview}
+              style={{
+                width: "500px",
+                height: "500px",
+                objectFit: "contain",
+                borderRadius: "20px",
+              }}
+            ></img>
+          )}
           {/* <canvas
             id="myCanvas"
             style={{
@@ -127,7 +103,9 @@ function DicomViewer() {
           ></canvas> */}
         </div>
       </div>
-      <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
+      <div
+        style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}
+      >
         <input
           type="file"
           id="fileInput"
@@ -155,3 +133,45 @@ export default DicomViewer;
 //   anchor.download = "image.png"; // Set the filename
 //   anchor.click();
 // }
+
+// const arrayBuffer = e.target.result;
+// const byteArray = new Uint8Array(arrayBuffer);
+// const dataSet = dicomParser.parseDicom(byteArray);
+// const pixelDataElement = dataSet.elements.x7fe00010;
+// const pixelData = new Uint16Array(
+//   dataSet.byteArray.buffer,
+//   pixelDataElement.dataOffset,
+//   pixelDataElement.length / 2
+// );
+// const canvas = document.getElementById("myCanvas");
+// const context = canvas.getContext("2d");
+// const width = dataSet.uint16("x00280011");
+// const height = dataSet.uint16("x00280010");
+// canvas.width = width;
+// canvas.height = height;
+// const imageData = context.createImageData(width, height);
+// const data = imageData.data;
+// // Find the minimum and maximum pixel values for normalization
+// let minPixelValue = Number.MAX_VALUE;
+// let maxPixelValue = Number.MIN_VALUE;
+// for (let i = 0; i < pixelData.length; i++) {
+//   const value = pixelData[i];
+//   if (value < minPixelValue) {
+//     minPixelValue = value;
+//   }
+//   if (value > maxPixelValue) {
+//     maxPixelValue = value;
+//   }
+// }
+// // Normalize the pixel data to the range [0, 255]
+// for (let i = 0, j = 0; i < pixelData.length; i++, j += 4) {
+//   const normalizedValue =
+//     ((pixelData[i] - minPixelValue) / (maxPixelValue - minPixelValue)) *
+//     255;
+//   data[j] = normalizedValue; // R
+//   data[j + 1] = normalizedValue; // G
+//   data[j + 2] = normalizedValue; // B
+//   data[j + 3] = 255; // A
+// }
+// // Clear the canvas before rendering
+// context.putImageData(imageData, 0, 0);

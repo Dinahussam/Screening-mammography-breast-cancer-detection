@@ -41,13 +41,13 @@ def index():
 
     dicom = pydicom.dcmread(dicom_file_path)
     data = dicom.pixel_array
-    plt.imsave('client/src/assets/preview.jpg', data, cmap='gray')
+    plt.imsave("client/src/assets/preview.jpg", data, cmap="gray")
 
     return (
         jsonify(
             {
                 "message": "File successfully uploaded",
-                "prediction": float(y_pred[0][1]),
+                "prediction": float(y_pred[0]),
             }
         ),
         200,
