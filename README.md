@@ -32,8 +32,10 @@ DICOM Cancer Detector is a project that leverages a deep learning Convolutional 
     ```
 
 2. Install the required packages
+   
+4. Add the .h5 file in model folder
 
-3. Start the Flask server:
+5. Start the Flask server:
     ```bash
     python -u main.py
     ```
