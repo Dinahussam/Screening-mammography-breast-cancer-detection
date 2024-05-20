@@ -29,7 +29,7 @@ def index():
     file.save(dicom_file_path)
 
     # Load Keras model
-    model_path = "service/cnn_model.h5"
+    model_path = "service/model/cnn_model.h5"
     model = load_model(model_path)
 
     # Example usage
