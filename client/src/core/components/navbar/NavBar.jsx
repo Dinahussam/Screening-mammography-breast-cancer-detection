@@ -30,7 +30,9 @@ const NavBar = () => {
             <h3>
               DICOM CANCER
               <br />
-              DETECTOR
+              <span>
+                DETECTOR
+              </span>
             </h3>
           </Nav>
         </Navbar.Collapse>

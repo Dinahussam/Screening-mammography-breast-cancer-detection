@@ -2,51 +2,76 @@ import React from "react";
 import "./Header.css";
 import { Row, Col } from "react-bootstrap";
 import HeaderImage from "../../../assets/Header.jpg";
+import HeaderImage2 from "../../../assets/Header2.jpg";
 import DicomViewer from "../components/DicomComponent";
 
 const Header = () => {
   return (
     <>
       <Row style={{ margin: "0px !important" }}>
-        <Col xs={4} style={{ alignContent: "center" }}>
-          {/* <h1 className="header">Home Page</h1> */}
-          <p
-            style={{
-              textJustify: "inter-word",
-              textAlign: "justify",
-              fontSize: "18px",
-            }}
-          >
-            We created a smart computer program that looks at medical images
-            called DICOM files to find signs of cancer. Our program uses a
-            special kind of artificial intelligence called a convolutional
-            neural network, or CNN, to do this job automatically. We taught the
-            program using a lot of different medical images, some with cancer
-            and some without, so it could learn what cancer looks like. It got
-            really good at spotting cancerous areas!
-          </p>
+        <Col xs={6} style={{ alignContent: "space-evenly" }}>
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-around"}}>
 
-          <p
-            style={{
-              textJustify: "inter-word",
-              textAlign: "justify",
-              fontSize: "18px",
-            }}
-          >
-            We tested our program on new images it hadn't seen before, and it
-            did really well at finding cancer and saying if it's there or not.
-            We even made it show which parts of the image it thinks are
-            cancerous, so doctors can understand its decisions better. The best
-            part? Doctors can use our program right alongside their usual tools
-            to help them diagnose cancer faster and more accurately.
-          </p>
-        </Col>
-        <Col xs={4}>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <img src={HeaderImage} className="header-img" />
+            <h1 className="header">Welcome to <span>Breast Cancer Classifier</span></h1>
+            <h3
+              style={{
+                textJustify: "inter-word",
+                textAlign: "justify",
+                fontSize: "20px"
+              }}
+            >
+              Empowering early detection through advanced imaging technology. Our innovative platform allows you to upload <span>breast DICOM files</span> and receive an accurate, AI-driven classification to determine if the tissue is cancerous
+            </h3>
+            <div>
+
+              <p
+                style={{
+                  textJustify: "inter-word",
+                  textAlign: "justify",
+                  fontSize: "18px",
+                  fontWeight: 'normal'
+                }}
+              >
+                Women between 40 and 44 have the option to start screening with a mammogram every year.
+              </p>
+              <p
+                style={{
+                  textJustify: "inter-word",
+                  textAlign: "justify",
+                  fontSize: "18px",
+                  fontWeight: 'normal'
+                }}
+              >
+                Women 45 to 54 should get mammograms every year.
+              </p>
+              <p
+                style={{
+                  textJustify: "inter-word",
+                  textAlign: "justify",
+                  fontSize: "18px",
+                  fontWeight: 'normal'
+                }}
+              >
+                Women 55 and older can switch to a mammogram every other year, or they can choose to continue yearly mammograms.
+              </p>
+            </div>
+
+            <h2
+              style={{
+                textJustify: "inter-word",
+                textAlign: "justify",
+              }}
+            >
+              Trust in our technology to help you take proactive steps towards better breast health
+            </h2>
           </div>
         </Col>
-        <Col xs={3}>
+        {/* <Col xs={4}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <img src={HeaderImage2} className="header-img" />
+          </div>
+        </Col> */}
+        <Col xs={6}>
           <DicomViewer />
         </Col>
       </Row>

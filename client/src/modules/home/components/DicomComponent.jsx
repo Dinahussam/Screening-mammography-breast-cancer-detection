@@ -87,8 +87,8 @@ function DicomViewer() {
   // ===========================================================================
 
   return (
-    <div>
-      <div>
+    <div style={{display: "flex", flexDirection: "column"}}>
+      <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
         <h2>
           Result:{" "}
           {prediction != null
@@ -127,7 +127,7 @@ function DicomViewer() {
           ></canvas> */}
         </div>
       </div>
-      <div style={{ display: "flex", justifyContent: "end" }}>
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
         <input
           type="file"
           id="fileInput"
