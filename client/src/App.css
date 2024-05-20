@@ -1,12 +1,14 @@
-body{
+body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black !important;
   color: white !important;
+  padding-inline: 3rem;
+  overflow: hidden;
 }
-
 
 /* width and height of the scrollbar */
 ::-webkit-scrollbar {
@@ -30,7 +32,7 @@ body{
   background: #555; /* color of the thumb on hover */
 }
 
-.row{
+.row {
   --bs-gutter-x: 0rem !important;
 }
 
